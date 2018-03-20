@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import layui from 'layui'
+
+Vue.use(layui)
 
 Vue.config.productionTip = false
 
