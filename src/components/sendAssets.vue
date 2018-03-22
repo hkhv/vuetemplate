@@ -15,15 +15,21 @@
     <div class="collapse" id="fromInfo">
       <div class="row">
           <label class="col-form-label col-sm-2">你的地址</label>
-          <label class="col-md-7 col-form-label">{{ fromAddr }}</label>
+          <div class="col-md-7">
+            <input type="text" readonly class="form-control-plaintext" v-bind:value="fromAddr">
+          </div>
       </div>
        <div class="row">
           <label class="col-form-label col-sm-2">你的WIF</label>
-          <label class="col-md-7 col-form-label">{{ fromWif }}</label>
+          <div class="col-md-7">
+            <input type="text" readonly class="form-control-plaintext" v-bind:value="fromWif">
+          </div>
       </div>
        <div class="row">
           <label class="col-form-label col-sm-2">你的公钥</label>
-          <label class="col-md-7 col-form-label">{{ fromPub }}</label>
+          <div class="col-md-7">
+            <input type="text" readonly class="form-control-plaintext" v-bind:value="fromPub">
+          </div>
       </div>
     </div>
     <div class="form-group row">
