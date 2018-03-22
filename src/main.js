@@ -3,9 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import layui from 'layui'
-
-Vue.use(layui)
+import 'jquery/dist/jquery.min.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.productionTip = false
 
