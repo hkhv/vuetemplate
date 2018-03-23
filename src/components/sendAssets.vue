@@ -1,8 +1,8 @@
 <template>
-  <div class="hello container">
+  <div class=" container">
     <div class="form-group row">
       <label class='col-form-label col-sm-2'>转账</label>
-      <select class="form-control  col-md-2"  name="" id="" v-model="assetType">
+      <select class="form-control  col-md-2" name="" id="" v-model="assetType">
         <option value="">请选择</option>
         <option value="NEO">NEO</option>
         <option value="GAS">GAS</option>
@@ -14,22 +14,22 @@
     </div>
     <div class="collapse" id="fromInfo">
       <div class="row">
-          <label class="col-form-label col-sm-2">你的地址</label>
-          <div class="col-md-7">
-            <input type="text" readonly class="form-control-plaintext" v-bind:value="fromAddr">
-          </div>
+        <label class="col-form-label col-sm-2">你的地址</label>
+        <div class="col-md-7">
+          <input type="text" readonly class="form-control-plaintext" v-bind:value="fromAddr">
+        </div>
       </div>
-       <div class="row">
-          <label class="col-form-label col-sm-2">你的WIF</label>
-          <div class="col-md-7">
-            <input type="text" readonly class="form-control-plaintext" v-bind:value="fromWif">
-          </div>
+      <div class="row">
+        <label class="col-form-label col-sm-2">你的WIF</label>
+        <div class="col-md-7">
+          <input type="text" readonly class="form-control-plaintext" v-bind:value="fromWif">
+        </div>
       </div>
-       <div class="row">
-          <label class="col-form-label col-sm-2">你的公钥</label>
-          <div class="col-md-7">
-            <input type="text" readonly class="form-control-plaintext" v-bind:value="fromPub">
-          </div>
+      <div class="row">
+        <label class="col-form-label col-sm-2">你的公钥</label>
+        <div class="col-md-7">
+          <input type="text" readonly class="form-control-plaintext" v-bind:value="fromPub">
+        </div>
       </div>
     </div>
     <div class="form-group row">
@@ -48,7 +48,7 @@
 import $ from 'jquery'
 import Neon, { api } from '@cityofzion/neon-js'
 export default {
-  name: 'HelloWorld',
+  name: 'sendAssets',
   data: function () {
     return {
       'fromPrivateKey': '',
@@ -58,7 +58,8 @@ export default {
       'fromBal': 0,
       'toAddr': '',
       'assetType': '',
-      'sendValue': 0
+      'sendValue': 0,
+      'headActive': 'sendAssets'
     }
   },
   watch: {
@@ -108,12 +109,5 @@ li {
 }
 a {
   color: #42b983;
-}
-input {
-  /* margin-top: 10px; */
-}
-p {
-  /* margin: 0; */
-  /* margin-top: 10px; */
 }
 </style>
