@@ -1,5 +1,6 @@
 <template>
-  <div class=" container">
+  <div class="container">
+    <br>
     <div class="form-group row">
       <label class='col-form-label col-sm-2'>转账</label>
       <select class="form-control  col-md-2" name="" id="" v-model="assetType">
