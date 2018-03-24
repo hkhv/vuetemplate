@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   data: function () {
     return {
@@ -41,27 +42,40 @@ export default {
       'allAddrCount': 0
     }
   },
+  created: function () {
+    this.getSummary()
+  },
   methods: {
-    getBlockCount: function () {
-      console.log(1)
-    },
-    getTxCount: function () {
-      console.log(1)
-    },
-    getAddrCount: function () {
-      console.log(1)
+    getSummary: function () {
+      let self = this
+      $.ajax({
+        url: 'http://192.168.1.39:8080/api/index',
+        type: 'post',
+        async: false,
+        data: JSON.stringify({
+          'jsonrpc': '2.0',
+          'method': 'queryAllCounts',
+          'params': [],
+          'id': 1
+        }),
+        success: function (res) {
+          self.allBlockCount = res.result.blockCounts
+          self.allTxCount = res.result.txCounts
+          self.allAddrCount = res.result.addressCounts
+        }
+      })
     }
   }
 }
 </script>
 
 <style>
-  .container {
-    padding-top: 20px;
-  }
-  .summary li {
-    text-align: center;
-    padding: 15px;
-    margin-top: 10px;
-  }
+.container {
+  padding-top: 20px;
+}
+.summary li {
+  text-align: center;
+  padding: 15px;
+  margin-top: 10px;
+}
 </style>
