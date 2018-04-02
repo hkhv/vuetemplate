@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg-dark">
     <top-nav :head-active="tabActive"></top-nav>
     <router-view/>
   </div>
@@ -22,11 +22,20 @@ export default {
 </script>
 
 <style>
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: white;
+  height: 100%;
 }
 .container {
   padding: 15px;

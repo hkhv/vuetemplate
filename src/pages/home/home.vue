@@ -3,31 +3,46 @@
     <div class="summary">
       <h4>Summary</h4>
       <ul class="row list-unstyled justify-content-around">
-        <li class="col-md-3 col-sm-12 bg-light">
+        <li class="col-md-3 col-sm-12 border border-white">
           <div>
-            <h4>Last block</h4>
-            <h5 class="last-block-num">{{ allBlockCount }}</h5>
-            <button class="btn btn-outline-primary">View</button>
+            <h4>Blocks</h4>
+            <h5 >{{ allBlockCount }}</h5>
+            <button class="btn btn-outline-light">View</button>
           </div>
         </li>
-        <li class="col-md-3 col-sm-12 bg-light">
+        <li class="col-md-3 col-sm-12 border border-white">
           <div>
-            <h4>Total transactions</h4>
+            <h4>transactions</h4>
             <h5 class="last-block-num">{{ allTxCount }}</h5>
-            <button class="btn btn-outline-primary">View</button>
+            <button class="btn btn-outline-light">View</button>
           </div>
         </li>
-        <li class="col-md-3 col-sm-12 bg-light">
+        <li class="col-md-3 col-sm-12 border border-white">
           <div>
-            <h4>Wallet address</h4>
+            <h4>Wallets</h4>
             <h5 class="last-block-num">{{ allAddrCount }}</h5>
-            <button class="btn btn-outline-primary">View</button>
+            <button class="btn btn-outline-light">View</button>
+          </div>
+        </li>
+        <li class="col-md-3 col-sm-12 border border-white">
+          <div>
+            <h4>Assets</h4>
+            <h5 class="last-block-num">{{ allAddrCount }}</h5>
+            <button class="btn btn-outline-light">View</button>
           </div>
         </li>
       </ul>
     </div>
-    <div class="last-tx">
+    <div class="tx-table">
       <h4>Last Five TX</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Size</th>
+          </tr>
+        </thead>
+      </table>
     </div>
   </div>
 </template>
@@ -39,11 +54,13 @@ export default {
     return {
       'allBlockCount': 0,
       'allTxCount': 0,
-      'allAddrCount': 0
+      'allAddrCount': 0,
+      'allAssets': 0,
+      'blockTable': []
     }
   },
   created: function () {
-    this.getSummary()
+
   },
   methods: {
     getSummary: function () {
@@ -62,14 +79,18 @@ export default {
           self.allBlockCount = res.result.blockCounts
           self.allTxCount = res.result.txCounts
           self.allAddrCount = res.result.addressCounts
+          self.allAssets = res.result.assetCounts
         }
       })
+    },
+    getBlockList: function () {
+
     }
   }
 }
 </script>
 
-<style>
+<style >
 .container {
   padding-top: 20px;
 }
@@ -77,5 +98,8 @@ export default {
   text-align: center;
   padding: 15px;
   margin-top: 10px;
+}
+.tx-table {
+  margin-top: 6rem;
 }
 </style>
